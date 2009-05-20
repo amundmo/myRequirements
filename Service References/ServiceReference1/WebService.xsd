@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/myRequirementsWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/myRequirementsWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="Fullname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoggedInTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PrimaryProject" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Userlevel" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Active" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PrivateRequirements" nillable="true" type="tns:ArrayOfPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Projects" nillable="true" type="tns:ArrayOfProject">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrivateRequirement" nillable="true" type="tns:PrivateRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrivateRequirement" nillable="true" type="tns:ArrayOfPrivateRequirement" />
+  <xs:complexType name="PrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PrivateRequirementsID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Aliases" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommonAttacks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Issues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TradeOffs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedPatterns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SelectedExample" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SuggestAsPublic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="References" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Examples" nillable="true" type="tns:ArrayOfExample">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationCategoriePrivateSecurityRequirements" nillable="true" type="tns:ArrayOfRelationCategoriePrivateSecurityRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationDomainPrivateRequirements" nillable="true" type="tns:ArrayOfRelationDomainPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationPatternPrivateRequirements" nillable="true" type="tns:ArrayOfRelationPatternPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationProjectPrivateRequirements" nillable="true" type="tns:ArrayOfRelationProjectPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrivateRequirement" nillable="true" type="tns:PrivateRequirement" />
+  <xs:complexType name="ArrayOfExample">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Example" nillable="true" type="tns:Example" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExample" nillable="true" type="tns:ArrayOfExample" />
+  <xs:complexType name="Example">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExampleID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PrivateRequirementID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Example" nillable="true" type="tns:Example" />
+  <xs:complexType name="ArrayOfRelationCategoriePrivateSecurityRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationCategoriePrivateSecurityRequirement" nillable="true" type="tns:RelationCategoriePrivateSecurityRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationCategoriePrivateSecurityRequirement" nillable="true" type="tns:ArrayOfRelationCategoriePrivateSecurityRequirement" />
+  <xs:complexType name="RelationCategoriePrivateSecurityRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PrivateRequirementID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategorieID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationCategoriePrivateSecurityRequirement" nillable="true" type="tns:RelationCategoriePrivateSecurityRequirement" />
+  <xs:complexType name="ArrayOfRelationDomainPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationDomainPrivateRequirement" nillable="true" type="tns:RelationDomainPrivateRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationDomainPrivateRequirement" nillable="true" type="tns:ArrayOfRelationDomainPrivateRequirement" />
+  <xs:complexType name="RelationDomainPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DomainID" type="xs:int" />
+      <xs:element minOccurs="0" name="PrivateRequirementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationDomainPrivateRequirement" nillable="true" type="tns:RelationDomainPrivateRequirement" />
+  <xs:complexType name="ArrayOfRelationPatternPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationPatternPrivateRequirement" nillable="true" type="tns:RelationPatternPrivateRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationPatternPrivateRequirement" nillable="true" type="tns:ArrayOfRelationPatternPrivateRequirement" />
+  <xs:complexType name="RelationPatternPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PrivateRequirementID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatternID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationPatternPrivateRequirement" nillable="true" type="tns:RelationPatternPrivateRequirement" />
+  <xs:complexType name="ArrayOfRelationProjectPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationProjectPrivateRequirement" nillable="true" type="tns:RelationProjectPrivateRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationProjectPrivateRequirement" nillable="true" type="tns:ArrayOfRelationProjectPrivateRequirement" />
+  <xs:complexType name="RelationProjectPrivateRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProjectID" type="xs:int" />
+      <xs:element minOccurs="0" name="PrivateRequirementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationProjectPrivateRequirement" nillable="true" type="tns:RelationProjectPrivateRequirement" />
+  <xs:complexType name="ArrayOfProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Project" nillable="true" type="tns:Project" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProject" nillable="true" type="tns:ArrayOfProject" />
+  <xs:complexType name="Project">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProjectID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="isPrimaryProject" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RelationProjectPrivateRequirements" nillable="true" type="tns:ArrayOfRelationProjectPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ArrayOfCategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Categorie" nillable="true" type="tns:Categorie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategorie" nillable="true" type="tns:ArrayOfCategorie" />
+  <xs:complexType name="Categorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategorieID" type="xs:int" />
+      <xs:element minOccurs="0" name="RelationCategoriePatterns" nillable="true" type="tns:ArrayOfRelationCategoriePattern">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationCategoriePrivateSecurityRequirements" nillable="true" type="tns:ArrayOfRelationCategoriePrivateSecurityRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationCategorieRequirements" nillable="true" type="tns:ArrayOfRelationCategorieRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Categorie" nillable="true" type="tns:Categorie" />
+  <xs:complexType name="ArrayOfRelationCategoriePattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationCategoriePattern" nillable="true" type="tns:RelationCategoriePattern" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationCategoriePattern" nillable="true" type="tns:ArrayOfRelationCategoriePattern" />
+  <xs:complexType name="RelationCategoriePattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategorieID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatternID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationCategoriePattern" nillable="true" type="tns:RelationCategoriePattern" />
+  <xs:complexType name="ArrayOfRelationCategorieRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationCategorieRequirement" nillable="true" type="tns:RelationCategorieRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationCategorieRequirement" nillable="true" type="tns:ArrayOfRelationCategorieRequirement" />
+  <xs:complexType name="RelationCategorieRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategorieID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationCategorieRequirement" nillable="true" type="tns:RelationCategorieRequirement" />
+  <xs:complexType name="ArrayOfPattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pattern" nillable="true" type="tns:Pattern" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPattern" nillable="true" type="tns:ArrayOfPattern" />
+  <xs:complexType name="Pattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatternID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Aliases" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommonAttacks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Examples" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tradeoffs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedPatterns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="References" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelationCategoriePatterns" nillable="true" type="tns:ArrayOfRelationCategoriePattern">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationDomainPatterns" nillable="true" type="tns:ArrayOfRelationDomainPattern">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationPatternPrivateRequirements" nillable="true" type="tns:ArrayOfRelationPatternPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationPatternRequirements" nillable="true" type="tns:ArrayOfRelationPatternRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pattern" nillable="true" type="tns:Pattern" />
+  <xs:complexType name="ArrayOfRelationDomainPattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationDomainPattern" nillable="true" type="tns:RelationDomainPattern" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationDomainPattern" nillable="true" type="tns:ArrayOfRelationDomainPattern" />
+  <xs:complexType name="RelationDomainPattern">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DomainID" type="xs:int" />
+      <xs:element minOccurs="0" name="PatternID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationDomainPattern" nillable="true" type="tns:RelationDomainPattern" />
+  <xs:complexType name="ArrayOfRelationPatternRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationPatternRequirement" nillable="true" type="tns:RelationPatternRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationPatternRequirement" nillable="true" type="tns:ArrayOfRelationPatternRequirement" />
+  <xs:complexType name="RelationPatternRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PatternID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationPatternRequirement" nillable="true" type="tns:RelationPatternRequirement" />
+  <xs:complexType name="Requirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RequirementID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Aliases" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Problem" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CommonAttacks" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Solution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Issues" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tradeoffs" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RelatedPatterns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReferencesText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="References" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Examples" nillable="true" type="tns:ArrayOfExample">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PrivateRequirements" nillable="true" type="tns:ArrayOfPrivateRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationCategorieRequirements" nillable="true" type="tns:ArrayOfRelationCategorieRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationDomainRequirements" nillable="true" type="tns:ArrayOfRelationDomainRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="RelationPatternRequirements" nillable="true" type="tns:ArrayOfRelationPatternRequirement">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Requirement" nillable="true" type="tns:Requirement" />
+  <xs:complexType name="ArrayOfRelationDomainRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationDomainRequirement" nillable="true" type="tns:RelationDomainRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationDomainRequirement" nillable="true" type="tns:ArrayOfRelationDomainRequirement" />
+  <xs:complexType name="RelationDomainRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DomainID" type="xs:int" />
+      <xs:element minOccurs="0" name="RequirementID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelationDomainRequirement" nillable="true" type="tns:RelationDomainRequirement" />
+  <xs:complexType name="ArrayOfRequirement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Requirement" nillable="true" type="tns:Requirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirement" nillable="true" type="tns:ArrayOfRequirement" />
+</xs:schema>

@@ -1,0 +1,38 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="myRequirements.contentPresenterControl"
+	d:DesignWidth="66" d:DesignHeight="16">
+                <Grid Width="Auto">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" MinHeight="10"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="450"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<Button x:Name="ListBoxExpander" Click="ListBoxExpander_Click" Grid.RowSpan="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="15" Height="15" Margin="0,0,0,0"/>-->
+                <TextBlock  VerticalAlignment="Stretch" Grid.Column="2" TextWrapping="Wrap"  HorizontalAlignment="Stretch" Margin="10,10,10,10" Text="test" />
+                <ListBox x:Name="PrivateRequirementListBoxChild"  SelectionChanged="mySecurityRequirementListBox_SelectionChanged" Style="{StaticResource ListboxBackground}" Margin="10,0,0,0" Grid.ColumnSpan="1" Grid.Row="1"  Grid.Column="1" Visibility="Collapsed">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                        <GradientStop Color="#0000F500" Offset="1"/>
+                                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                </ListBox>
+		</Grid>
+</UserControl>

@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_WebService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:1927/WebService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_WebService" contract="ServiceReference1.WebService"
+                name="BasicHttpBinding_WebService" />
+        </client>
+    </system.serviceModel>
+</configuration>

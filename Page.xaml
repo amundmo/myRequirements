@@ -1,0 +1,241 @@
+﻿<UserControl x:Class="myRequirements.Page"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="780" Height="480" xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:myRequirements="clr-namespace:myRequirements" xmlns:Liquid="clr-namespace:Liquid;assembly=Liquid">
+
+
+    <UserControl.Resources>
+
+        <DataTemplate x:Key="DataTemplateForListBox">
+            <Grid Width="355" Height="auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.777*"/>
+                    <ColumnDefinition Width="0.223*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.312*"/>
+                    <!--<RowDefinition Height="0.219*"/>-->
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock VerticalAlignment="Top" Padding="0, 0, 0, 10" Text="{Binding Path=Name}" TextWrapping="Wrap" Height="Auto" HorizontalAlignment="Left" d:LayoutOverrides="VerticalAlignment" FontWeight="Bold" FontFamily="Portable User Interface" Grid.ColumnSpan="2"/>
+                <!--<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" Text="{Binding Path=AbstractInformation}" TextWrapping="Wrap" Margin="0,0,0,0" d:LayoutOverrides="GridBox" Grid.ColumnSpan="2"/>-->
+
+                <Button HorizontalAlignment="Left" Margin="7,0,0,0" VerticalAlignment="Bottom" Content="Edit" RenderTransformOrigin="1.581,0.455" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"/>
+                <Button VerticalAlignment="Bottom" Content="Delete" d:LayoutOverrides="Width" Margin="38,0,0,0" Grid.Column="1" Grid.Row="2" Grid.RowSpan="2"/>
+
+            </Grid>
+        </DataTemplate>
+
+
+        <DataTemplate x:Key="DataTemplateForRequirementInfoListbox">
+
+            <TextBlock VerticalAlignment="Top" Text="{Binding}" Padding="0, 0, 0, 10" TextWrapping="Wrap"  Width="340" Height="Auto" HorizontalAlignment="Left" d:LayoutOverrides="VerticalAlignment" Grid.ColumnSpan="2"/>
+
+        </DataTemplate>
+
+
+    </UserControl.Resources>
+
+
+
+    <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.192*"/>
+            <RowDefinition Height="0.808*"/>
+        </Grid.RowDefinitions>
+        <basics:TabControl Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <basics:TabItem x:Name="Search" Header="Search">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="108"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Margin="29,42,36,0" VerticalAlignment="Top" Text="TextBox" TextWrapping="Wrap"/>
+                    <Button HorizontalAlignment="Right" Margin="0,42,-12,0" x:Name="SearchButton" VerticalAlignment="Top" Content="Search" d:LayoutOverrides="HorizontalAlignment"/>
+                    <ListBox Grid.Row="1" Margin="0,0,0,8">
+                        <ListBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFA3AEB9"/>
+                                <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                                <GradientStop Color="#FF718597" Offset="0.375"/>
+                                <GradientStop Color="#FFB0B0B0" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListBox.BorderBrush>
+                        <ListBox.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFF5F5F5" Offset="1"/>
+                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            </LinearGradientBrush>
+                        </ListBox.Background>
+
+
+                        <ListBoxItem Height="50">
+                            <ListBoxItem.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                                    <GradientStop Color="#FFFFFFFF"/>
+                                </LinearGradientBrush>
+                            </ListBoxItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="A design pattern" FontSize="14" Grid.Column="1"/>
+                                <TextBlock Text="Abstract information" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </ListBoxItem>
+
+
+                        <ListBoxItem Height="50">
+                            <ListBoxItem.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                                    <GradientStop Color="#FFFFFFFF"/>
+                                </LinearGradientBrush>
+                            </ListBoxItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="A security pattern" FontSize="14" Grid.Column="1"/>
+                                <CheckBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"/>
+                                <TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Text="Abstract information" TextWrapping="Wrap"/>
+                            </Grid>
+                        </ListBoxItem>
+
+                        <ListBoxItem Height="50">
+                            <ListBoxItem.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                </LinearGradientBrush>
+                            </ListBoxItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Attach/threat category" FontSize="14" Grid.Column="1"/>
+                                <TextBlock Text="" Grid.Row="1" Grid.Column="1"/>
+                            </Grid>
+                        </ListBoxItem>
+
+
+
+
+
+                        <ListBoxItem Height="50">
+                            <ListBoxItem.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFF1F1F1" Offset="1"/>
+                                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                </LinearGradientBrush>
+                            </ListBoxItem.Background>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20"/>
+                                    <RowDefinition Height="20"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Text="Another security requirement pattern" FontSize="14" Grid.Column="1"/>
+                                <TextBlock Text="Abstract information" Grid.Row="1" Grid.Column="1"/>
+                                <CheckBox HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0"/>
+                            </Grid>
+                        </ListBoxItem>
+
+                    </ListBox>
+                    <TextBlock HorizontalAlignment="Stretch" Margin="10,10,0,10" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Text="Information box (Not activated)" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface"/>
+
+
+                </Grid>
+            </basics:TabItem>
+            <basics:TabItem x:Name="My_Requirements" Header="My Requirements">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="Create new" Margin="8,20,0,0" ToolTipService.ToolTip="Create a new security requirement (it will not have any metadata)" Click="Button_Click_CreateNewRequirement"/>
+                    <Button HorizontalAlignment="Left" VerticalAlignment="Top" Content="Design patterns" Margin="81,20,0,0" ToolTipService.ToolTip="Show suggestion of design patterns that can be used as security activites"/>
+                    <ListBox x:Name="mySecurityRequirementListBox" SelectionChanged="mySecurityRequirementListBox_SelectionChanged" Style="{StaticResource ListboxBackground}" ItemTemplate="{StaticResource DataTemplateForListBox}" Height="Auto" Width="Auto" Grid.Row="1">
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="ListBoxItem">
+
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                            <GradientStop Color="#FFF5F5F5" Offset="1"/>
+                                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                    <Grid HorizontalAlignment="Stretch" Margin="10,10,10,10" Width="Auto" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" x:Name="requirementInfoGrid">
+                        <Grid.RowDefinitions>
+                            <!--<RowDefinition Height="Auto" MinHeight="26"/>-->
+                            <RowDefinition Height="Auto" MinHeight="33"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="0.816*"/>
+                        </Grid.RowDefinitions>
+                        <!--<TextBlock Text="{Binding Name}" HorizontalAlignment="Stretch" Margin="0,0,0,10" VerticalAlignment="Stretch" TextWrapping="Wrap" x:Name="requirementName" FontWeight="Bold" FontFamily="Portable User Interface" FontSize="11"/>-->
+                        <Liquid:RichTextBlock HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Grid.Row="0" Text="{Binding AbstractInformation}" TextWrapping="Wrap" x:Name="requirementAbstract" FontFamily="Portable User Interface" d:IsStaticText="False" FontSize="11" Margin="0,0,0,10"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,0,0,10" VerticalAlignment="Top" Grid.Row="1" Text="Other examples" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface"/>
+                        <ListBox SelectionChanged="requirementInfoExamples_SelectionChanged" Height="Auto" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="350" Grid.Row="2" x:Name="requirementInfoExamples" ItemTemplate="{StaticResource DataTemplateForRequirementInfoListbox}">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+
+                                    <Setter Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                                <GradientStop Color="#FFF5F5F5" Offset="1"/>
+                                                <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+            </basics:TabItem>
+        </basics:TabControl>
+    </Grid>
+</UserControl>

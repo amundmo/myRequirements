@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="myRequirements.RegisterNewUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="1000" Height="480"  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" VerticalAlignment="Top" Background="#FF000000" xmlns:myRequirements="clr-namespace:myRequirements">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="ErrorColor" Color="#2EFF0000"/>
+		<SolidColorBrush x:Key="ErrorColor2" Color="#7FFF0000"/>
+		<SolidColorBrush x:Key="Brush1" Color="#7EFFFFFF"/>
+		<RadialGradientBrush x:Key="GreenBackground">
+			<GradientStop Color="#FFFFFFFF" Offset="1"/>
+			<GradientStop Color="#FF93FF9A" Offset="0.52"/>
+		</RadialGradientBrush>
+
+    </UserControl.Resources>
+    
+     <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
+     	<vsm:VisualStateManager.VisualStateGroups>
+     		<vsm:VisualStateGroup x:Name="Fullname">
+     			<vsm:VisualState x:Name="VisualState"/>
+     			<vsm:VisualState x:Name="VisualState1">
+     				<Storyboard>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="fullName" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     				</Storyboard>
+     			</vsm:VisualState>
+     		</vsm:VisualStateGroup>
+     		<vsm:VisualStateGroup x:Name="Username">
+     			<vsm:VisualState x:Name="VisualState2"/>
+     			<vsm:VisualState x:Name="VisualState3">
+     				<Storyboard>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="username" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     				</Storyboard>
+     			</vsm:VisualState>
+     		</vsm:VisualStateGroup>
+     		<vsm:VisualStateGroup x:Name="Email">
+     			<vsm:VisualState x:Name="VisualState4"/>
+     			<vsm:VisualState x:Name="VisualState5">
+     				<Storyboard>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="email" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     				</Storyboard>
+     			</vsm:VisualState>
+     		</vsm:VisualStateGroup>
+     		<vsm:VisualStateGroup x:Name="Country">
+     			<vsm:VisualState x:Name="VisualState6"/>
+     			<vsm:VisualState x:Name="VisualState7">
+     				<Storyboard>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="country" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     				</Storyboard>
+     			</vsm:VisualState>
+     		</vsm:VisualStateGroup>
+     		<vsm:VisualStateGroup x:Name="Password">
+     			<vsm:VisualState x:Name="VisualState8"/>
+     			<vsm:VisualState x:Name="VisualState9">
+     				<Storyboard>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="password" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     					<ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="cpassword" Storyboard.TargetProperty="(Control.Background).(SolidColorBrush.Color)">
+     						<SplineColorKeyFrame KeyTime="00:00:00" Value="#7FF7A4A4"/>
+     					</ColorAnimationUsingKeyFrames>
+     				</Storyboard>
+     			</vsm:VisualState>
+     		</vsm:VisualStateGroup>
+     	</vsm:VisualStateManager.VisualStateGroups>
+    <Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.248*"/>
+            <RowDefinition Height="0.752*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Ellipse Margin="0,8,0,28" Grid.Row="1" Stroke="{x:Null}" Fill="{StaticResource GreenBackground}" HorizontalAlignment="Center" Width="800"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="Auto" FontSize="24" TextWrapping="Wrap"><Run Text="Welcome to "/><Run TextDecorations="Underline" Text="your"/><Run Text=" requirements!"/></TextBlock>
+        <Path Height="21" Margin="0,0,0,0" VerticalAlignment="Bottom" Fill="#FFFFFFFF" Stretch="Fill" Stroke="#FF000000" Data="M0,0 L124,0"/>
+    	<Grid Height="Auto" HorizontalAlignment="Center" Margin="0,25,0,10" VerticalAlignment="Stretch" Width="400" Grid.Row="1">
+    		<Grid.ColumnDefinitions>
+    			<ColumnDefinition Width="0.338*"/>
+    			<ColumnDefinition Width="0.662*"/>
+    		</Grid.ColumnDefinitions>
+    		<Grid.RowDefinitions>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="30"/>
+    			<RowDefinition Height="*"/>
+    		</Grid.RowDefinitions>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="1" TextWrapping="Wrap"><Run Text="Full name"/><Run Text=":"/></TextBlock>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="2" Text="Username:" TextWrapping="Wrap"/>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="3" Text="Email:" TextWrapping="Wrap"/>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="4" Text="Country:" TextWrapping="Wrap"/>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="5" Text="Password:" TextWrapping="Wrap"/>
+    		<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="6" Text="Confirm password:" TextWrapping="Wrap"/>
+    		<TextBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Text="" TextWrapping="Wrap" x:Name="fullName" BorderThickness="1,1,1,1" Background="#7FFFFFFF"/>
+    		<TextBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2" Text="" TextWrapping="Wrap"  Background="#7FFFFFFF" x:Name="username"/>
+    		<TextBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3" Text="" TextWrapping="Wrap"  Background="#7FFFFFFF" x:Name="email"/>
+    		<TextBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4" Text="" TextWrapping="Wrap" Background="#7FFFFFFF" x:Name="country"/>
+    		<PasswordBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="5"   Background="#7FFFFFFF" x:Name="password"/>
+    		<PasswordBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Column="1" Grid.Row="6"  Background="#7FFFFFFF" x:Name="cpassword"/>
+    		<Button HorizontalAlignment="Right" Margin="0,8,8,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="7" Click="registerNewUser" Content="Register" d:LayoutOverrides="HorizontalAlignment"/>
+    		<Grid Margin="0,0,0,0" Grid.Column="0" Grid.RowSpan="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    			<Grid.ColumnDefinitions>
+    				<ColumnDefinition Width="*"/>
+    				<ColumnDefinition Width="*"/>
+    			</Grid.ColumnDefinitions>
+    			<TextBlock HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Stretch" Text="Register new user" TextWrapping="Wrap" FontSize="12" FontWeight="Bold" FontFamily="Portable User Interface" d:LayoutOverrides="GridBox"/>
+    			<HyperlinkButton HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Grid.Column="1" Content="(go back to the main page)" Click="click_goBackToMainMenu" Width="Auto"  />
+    		</Grid>
+
+    	</Grid>
+		
+		
+    	<Ellipse Height="50" HorizontalAlignment="Right" Margin="0,7,1,0" VerticalAlignment="Top" Width="150">
+    		<Ellipse.Fill>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#FFFFFFFF" Offset="1"/>
+    				<GradientStop Color="#FF93FF9A" Offset="0"/>
+    			</RadialGradientBrush>
+    		</Ellipse.Fill>
+    	</Ellipse>
+    	<TextBlock HorizontalAlignment="Right" Margin="0,23,36,0" VerticalAlignment="Top" FontFamily="Portable User Interface" FontWeight="Normal" TextWrapping="noWrap"><Run FontWeight="Normal" Text="myRequirments"/></TextBlock>
+    	<TextBlock HorizontalAlignment="Right" Margin="0,25,126,43" Grid.Row="1" Text="" TextWrapping="Wrap" Width="169" x:Name="errorTextBlock"/>
+    	<myRequirements:ProgressBar HorizontalAlignment="Center" Margin="0,80,0,0" x:Name="progressBar" VerticalAlignment="Top" Visibility="Collapsed" Grid.Row="1"/>
+    	<myRequirements:InfoMessagePanelControl Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.RowSpan="2" Height="478" Visibility="Collapsed" x:Name="infoMessagePanelControl"/>
+    </Grid>
+	</Border>
+</UserControl>

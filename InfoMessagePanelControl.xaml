@@ -1,0 +1,33 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="myRequirements.InfoMessagePanelControl"
+	d:DesignWidth="998" d:DesignHeight="478">
+
+	<Grid x:Name="LayoutRoot">
+		<Grid HorizontalAlignment="Stretch" Width="Auto" Visibility="Visible" x:Name="InfoMessagePanel">
+			<Rectangle Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Fill="#B2FFFFFF"/>
+			<Border BorderThickness="1,1,1,1" BorderBrush="#FF979797" CornerRadius="50,50,50,50" Visibility="Visible" x:Name="InfoMessageBox" Height="210" HorizontalAlignment="Center" Margin="0,150,0,0" VerticalAlignment="Top" Width="330">
+				<Border.Background>
+					<RadialGradientBrush>
+						<GradientStop Color="#FF93FF9A" Offset="1"/>
+						<GradientStop Color="#FFFFFFFF"/>
+					</RadialGradientBrush>
+				</Border.Background>
+				<Grid Height="160" Width="271" Margin="30,10,30,10">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="40"/>
+						<RowDefinition Height="Auto" MinHeight="77"/>
+						<RowDefinition Height="33"/>
+					</Grid.RowDefinitions>
+					<TextBlock HorizontalAlignment="Stretch" Style="{StaticResource infoBoxHeader}" Margin="0,0,0,0" VerticalAlignment="Stretch" TextWrapping="noWrap" x:Name="header"/>
+					<TextBlock HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" Text="Message" TextWrapping="Wrap" x:Name="message" Grid.RowSpan="2"/>
+					<Button HorizontalAlignment="Right" Margin="0,8,8,0" VerticalAlignment="Top" Grid.Row="2" Content="Ok&#xa;Ok" Width="37" Height="24" x:Name="okInfoMessageButotn"/>
+				</Grid>
+			</Border>
+		</Grid>
+	</Grid>
+</UserControl>

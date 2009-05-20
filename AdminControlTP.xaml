@@ -1,0 +1,155 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="myRequirements.AdminControlTP"
+	d:DesignWidth="986"  xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" xmlns:myRequirements="clr-namespace:myRequirements">
+
+	<UserControl.Resources>
+            
+		<Color x:Key="BorderGreyColor">#FFA1A1A1</Color>        
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="100"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+			</Grid.ColumnDefinitions>
+
+			<Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="CreateNewCategory" Content="Add new" Margin="179,0,0,13" ToolTipService.ToolTip="Create a new security requirement (it will not have any metadata)" d:LayoutOverrides="Width, Height"/>
+			<ListBox x:Name="leftList" SelectionChanged="ListBox_SelectionChanged" Width="Auto" Height="Auto" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=Categorie.Name}" Margin="10,10,10,10"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                    <GradientStop Color="#000000f5" Offset="1"/>
+                                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+			<Path Height="21" Margin="0,0,0,5" VerticalAlignment="Bottom" Fill="#FFFFFFFF" Stretch="Fill" Data="M0,0 L124,0" Grid.ColumnSpan="2">
+				<Path.Stroke>
+					<SolidColorBrush Color="{StaticResource BorderGreyColor}"/>
+				</Path.Stroke>
+			</Path>
+			<TextBlock HorizontalAlignment="Left" Margin="8,0,0,13" VerticalAlignment="Bottom" TextWrapping="NoWrap"><Run FontSize="12" FontWeight="Bold" Text="Security Design Patterns"/></TextBlock>
+			<TextBlock Margin="8,0,0,8" VerticalAlignment="Bottom" TextWrapping="NoWrap" HorizontalAlignment="Left" Grid.Column="1" d:LayoutOverrides="Width"><Run FontSize="12" FontWeight="Bold" Text="Information"/></TextBlock>
+			<Grid HorizontalAlignment="Stretch" Margin="10,10,10,10" Width="Auto" VerticalAlignment="Stretch" x:Name="requirementEditInfoGrid2" Visibility="Visible" Grid.Column="1" Grid.Row="1">
+				<Grid.RowDefinitions>
+							
+					<RowDefinition Height="25"/>
+					<RowDefinition Height="25"/>
+					<RowDefinition Height="Auto"  MinHeight="25"/>
+					<RowDefinition Height="25"/>
+					<RowDefinition Height="Auto" MinHeight="25"/>
+					<RowDefinition Height="25"/>
+					<RowDefinition Height="Auto" MinHeight="75"/>
+					<RowDefinition Height="25"/>
+					<RowDefinition Height="Auto" MinHeight="75"/>
+				</Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" Text="ID:" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface" d:LayoutOverrides="Height"/>
+				<TextBlock HorizontalAlignment="Left" Margin="25,12.5,0,0" VerticalAlignment="Top" Text="{Binding Path=CategorieID}" TextWrapping="Wrap" x:Name="CategoryEditID"/>
+				<Button HorizontalAlignment="Right" Margin="0,0,100,0" Click="SaveRequirement" Content="Done" d:LayoutOverrides="Height" VerticalAlignment="Top"/>
+    								
+				<Button HorizontalAlignment="Right" Margin="0,0,53,0" VerticalAlignment="Top" Content="Cancel" Click="CancelChanges" d:LayoutOverrides="Width"/>
+				<Button HorizontalAlignment="Right" Margin="0,0,8,3" Click="DeleteCategory" Content="Delete" d:LayoutOverrides="Height"/>
+				<TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="1" Text="Name" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface"/>
+				<TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Grid.Row="2" Text="{Binding Mode=TwoWay, Path=Name}" TextWrapping="Wrap" x:Name="CategoryEditName" Grid.RowSpan="1" AcceptsReturn="True"/>
+				<TextBlock HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Row="3" Text="Description" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface"/>
+				<TextBox HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="4" Text="{Binding Description, Mode=TwoWay}" TextWrapping="Wrap" x:Name="CategoryEditDescription" AcceptsReturn="True"/>
+				<TextBlock HorizontalAlignment="Left" Text="Security Design Patterns" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface" Margin="0,8,0,1" Grid.Row="5" d:LayoutOverrides="Height"/>
+				
+                <HyperlinkButton Margin="158,7,0,2" Content="(Add new)" Click="NewSDP" HorizontalAlignment="Left" Grid.Row="5" d:LayoutOverrides="Width, Height"/>
+				<TextBlock Margin="226,7,227,2" Visibility="Visible" Text="ID:" TextWrapping="Wrap" x:Name="NewSDPIDText" Grid.Row="5" d:LayoutOverrides="Height"/>
+				<TextBox HorizontalAlignment="Right" Margin="0,0,126,1" x:Name="NewSDPIDTextBox" Width="100" Visibility="Visible" Text="TextBox" TextWrapping="Wrap" Grid.Row="5" d:LayoutOverrides="Height"/>
+				<Button HorizontalAlignment="Right" Margin="0,1,100,2" Click="NewSDPOKButton_Click" Visibility="Visible" Content="Ok" x:Name="NewSDPOKButton" Grid.Row="5" d:LayoutOverrides="Height"/>
+                <ListBox HorizontalAlignment="Stretch" SelectionChanged="SDPList_SelectionChanged" Margin="0,0,0,0" Width="Auto" Grid.Row="6" Grid.RowSpan="1" x:Name="SDPList">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="368"/>
+                                    <ColumnDefinition Width="52"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Path=Name}" TextWrapping="Wrap" Grid.Column="0"/>
+                                <Button Margin="1,0,1,0" VerticalAlignment="Top" Grid.Column="1" Content="Delete" Click="deletePatternRelation"  Tag="{Binding Path=PatternID}" d:LayoutOverrides="Width"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                        <GradientStop Color="#00f50000" Offset="1"/>
+                                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+
+
+                <TextBlock HorizontalAlignment="Left" Text="Security Requirement Patterns" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Portable User Interface" Margin="0,8,0,1" Grid.Row="7" d:LayoutOverrides="Height"/>
+				
+                <HyperlinkButton Margin="198,8,213,1" Content="(Add new)" Click="newSRP" Grid.Row="7" d:LayoutOverrides="Width, Height"/>
+				<TextBlock Margin="0,8,190,1" Visibility="Visible" Text="ID:" TextWrapping="Wrap" x:Name="NewSRPIDTextBlock" HorizontalAlignment="Right" Width="20" Grid.Row="7" d:LayoutOverrides="Height"/>
+				<TextBox Margin="0,1,69,0" x:Name="NewSRPIDTextBox" Visibility="Visible" Text="TextBox" TextWrapping="Wrap" HorizontalAlignment="Right" Width="120" Grid.Row="7" d:LayoutOverrides="Height"/>
+				<Button HorizontalAlignment="Right" Margin="0,2,43,1" Click="NewSRPOKButton_Click" Visibility="Visible" Content="Ok" x:Name="NewSRPOKButton" Grid.Row="7" d:LayoutOverrides="Height"/>
+                <ListBox HorizontalAlignment="Stretch" SelectionChanged="SRPList_SelectionChanged" Width="Auto" Margin="0,-1,0,1" Grid.Row="8" x:Name="SRPList">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="400"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Path=Name}" TextWrapping="Wrap" Grid.Column="0"/>
+                                <Button Margin="1,0,1,0" VerticalAlignment="Top" Grid.Column="1" Content="Delete" Click="deleteRequirementRelation"  Tag="{Binding Path=RequirementID}" d:LayoutOverrides="Width"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+
+                            <Setter Property="Background">
+                                <Setter.Value>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" >
+                                        <GradientStop Color="#0000f500" Offset="1"/>
+                                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+
+
+            </Grid>
+			<myRequirements:ProgressBar HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" x:Name="ProgressBarLeft" Visibility="Visible" Grid.Row="1"/>
+			<myRequirements:ProgressBar Margin="0,100,0,0" VerticalAlignment="Top" x:Name="ProgressBarRight" HorizontalAlignment="Center" Visibility="Visible" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+		<myRequirements:InfoMessagePanelControl HorizontalAlignment="Stretch" x:Name="InfoMessagePanel" VerticalAlignment="Stretch" Visibility="Collapsed" Margin="0,0,0,0"/>
+		<myRequirements:QuestionInfoMessageBoxControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" x:Name="questionInfoMessgeBox" Margin="0,0,0,0"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,65 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="myRequirements.AdminControlUserManager"
+	d:DesignWidth="974" d:DesignHeight="800" xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data" xmlns:myRequirements="clr-namespace:myRequirements">
+
+	<UserControl.Resources>
+            
+		<Color x:Key="BorderGreyColor">#FFA1A1A1</Color>        
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="100"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+			</Grid.ColumnDefinitions>
+			<TextBlock HorizontalAlignment="Left" Margin="8,0,0,13" VerticalAlignment="Bottom" TextWrapping="NoWrap"><Run FontSize="12" FontWeight="Bold" Text="Users"/></TextBlock>
+			<Path Height="21" Margin="0,0,-12,5" VerticalAlignment="Bottom" Fill="#FFFFFFFF" Stretch="Fill" Data="M0,0 L124,0" Grid.ColumnSpan="2">
+				<Path.Stroke>
+					<SolidColorBrush Color="{StaticResource BorderGreyColor}"/>
+				</Path.Stroke>
+			</Path>
+            <data:DataGrid HorizontalAlignment="Center" SelectionMode="Single" AutoGenerateColumns="False" VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" x:Name="UserGrid" BorderThickness="1,1,1,1" Margin="10,10,10,10">
+                    <data:DataGrid.Columns>
+                        <data:DataGridTextColumn Header="Full name" Width="100" Binding="{Binding Path=Fullname}"/>
+                        <data:DataGridTextColumn Header="Username" Width="100" Binding="{Binding Path=Username}"/>
+                        <data:DataGridTextColumn Header="Country" Width="100" Binding="{Binding Path=Country}"/>
+                        <data:DataGridTextColumn Header="Email" Width="150" Binding="{Binding Path=Email}"/>
+                        <data:DataGridTextColumn Header="Last logged in" Width="110" Binding="{Binding Path=LoggedInTime}"/>
+                        <data:DataGridTextColumn Header="Profile created" Width="110" Binding="{Binding Path=CreatedTime}"/>
+                        <data:DataGridTextColumn Header="Userlevel" Width="80" Binding="{Binding Path=Userlevel}"/>
+                    <data:DataGridCheckBoxColumn Header="Active" Width="60" Binding="{Binding Path=Active}"/>
+                    
+                        <data:DataGridTemplateColumn Width="60">
+                            <data:DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Delete" Click="DeleteButtonClicked" Tag="{Binding UserID}"/>
+                                </DataTemplate>
+                            </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+
+                    <data:DataGridTemplateColumn Width="60">
+                        <data:DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="GoTo" Click="LoginAsClick" Tag="{Binding UserID}"/>
+                            </DataTemplate>
+                        </data:DataGridTemplateColumn.CellTemplate>
+                    </data:DataGridTemplateColumn>
+                </data:DataGrid.Columns>
+            </data:DataGrid>
+		</Grid>
+		<Button HorizontalAlignment="Right" Margin="0,66,68,0" Click="saveUsersButton_Click" VerticalAlignment="Top" Content="Save changes" IsEnabled="False" x:Name="SaveUserButton"/>
+		<myRequirements:ProgressBar HorizontalAlignment="Center" Margin="0,200,0,0" x:Name="ProgressBar" VerticalAlignment="Top" Visibility="Collapsed"/>
+		<myRequirements:QuestionInfoMessageBoxControl Margin="0,0,0,0" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" x:Name="QuestionInfoMessageBox" Visibility="Collapsed"/>
+		<myRequirements:InfoMessagePanelControl HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" x:Name="InfoMessagePanel"/>
+	</Grid>
+</UserControl>

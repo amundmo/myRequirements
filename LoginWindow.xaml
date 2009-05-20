@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="myRequirements.LoginWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Width="1000" Height="480" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" VerticalAlignment="Top" BorderThickness="0,0,0,0" xmlns:myRequirements="clr-namespace:myRequirements">
+    <Border BorderBrush="#FF000000" BorderThickness="1,1,1,1">
+	<Grid x:Name="LayoutRoot" Background="#FFFFFFFF">
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.248*"/>
+    		<RowDefinition Height="0.106*"/>
+    		<RowDefinition Height="0.646*"/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="0.523*"/>
+    		<ColumnDefinition Width="0.477*"/>
+    	</Grid.ColumnDefinitions>
+    	<Border Margin="0,10,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="2" CornerRadius="50,50,50,50" d:LayoutOverrides="VerticalAlignment">
+    		<Border.Background>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#FF93FF9A" Offset="1"/>
+    				<GradientStop Color="#FFFFFFFF" Offset="0"/>
+    			</RadialGradientBrush>
+    		</Border.Background>
+    		<Grid Height="160" Width="271" Margin="30,10,30,10">
+    			<Grid.RowDefinitions>
+    				<RowDefinition Height="40"/>
+    				<RowDefinition Height="30"/>
+    				<RowDefinition Height="30"/>
+    				<RowDefinition Height="50"/>
+    			</Grid.RowDefinitions>
+    			<TextBox x:Name="usernameTextBox" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" Background="#7FFFFFFF" ToolTipService.ToolTip="Username"/>
+    			<PasswordBox x:Name="passwordTextBox" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" Grid.Row="2" Background="#80FFFFFF"/>
+    			<TextBlock HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" TextWrapping="Wrap"><Run FontSize="16" FontWeight="Bold" Text="Login"/></TextBlock>
+    			<myRequirements:ProgressBar HorizontalAlignment="Center" Margin="0,0,0,10" Grid.RowSpan="4" d:LayoutOverrides="Height" VerticalAlignment="Center" Visibility="Collapsed" x:Name="ProgressBarControl"/>
+    			<Button Click="LoginEvent" x:Name="LoginButton" Height="30" HorizontalAlignment="Right" Margin="0,17,0,0" VerticalAlignment="Top" Width="60" Grid.Row="3" Content="Login" d:LayoutOverrides="VerticalAlignment"/>
+    		</Grid>
+    	</Border>
+    	<TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="Auto" Grid.ColumnSpan="2" FontSize="24" TextWrapping="Wrap"><Run Text="Welcome to "/><Run TextDecorations="Underline" Text="your"/><Run Text=" "/><Run Text="security"/><Run Text=" "/><Run Text="requirements!"/></TextBlock>
+    	<TextBlock HorizontalAlignment="Left" Margin="10,10,10,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Width="117.992" d:LayoutOverrides="Width" Height="30"><Run FontSize="16" FontWeight="Bold" Text="Abo"/><Run FontSize="16" FontWeight="Bold" Text="u"/><Run FontSize="16" FontWeight="Bold" Text="t"/><LineBreak/><Run Text=""/></TextBlock>
+    	<TextBlock HorizontalAlignment="Stretch" Margin="10,40,10,10" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap"><Run Text="myRequirement is a tool developed to investigate the relationship between Security Requirements and Security Design Patt"/><Run Text="erns"/><Run Text=". The principle is that by presenting reusable Security Requirements to the developers, they can more easily find good Security Requirements and in the same time look up Security Activities that has been proven to be useful for other projects. By doing this, we hope to give developers the extra information needed to develop more secure software. "/></TextBlock>
+    	<Path Height="21" Margin="0,0,0,0" VerticalAlignment="Bottom" Fill="#FFFFFFFF" Stretch="Fill" Stroke="#FF000000" Data="M0,0 L124,0" Grid.ColumnSpan="2"/>
+    	<HyperlinkButton Click="LostPasswordEvent" HorizontalAlignment="Left" Margin="130,141,0,0" VerticalAlignment="Top" Grid.Row="2" Content="Lost password?" d:LayoutOverrides="VerticalAlignment"/>
+    	<Ellipse Height="50" HorizontalAlignment="Right" Margin="0,7,1,0" VerticalAlignment="Top" Width="150" Grid.Column="1">
+    		<Ellipse.Fill>
+    			<RadialGradientBrush>
+    				<GradientStop Color="#FFFFFFFF" Offset="1"/>
+    				<GradientStop Color="#FF93FF9A" Offset="0"/>
+    			</RadialGradientBrush>
+    		</Ellipse.Fill>
+    	</Ellipse>
+    	<HyperlinkButton Click="RegisterNewUserEvent" HorizontalAlignment="Left" Margin="130,0,0,137" Grid.Row="2" Content="Register" d:LayoutOverrides="HorizontalAlignment, Height" VerticalAlignment="Bottom"/>
+    	<TextBlock HorizontalAlignment="Right" Margin="0,23,36,0" VerticalAlignment="Top" FontFamily="Portable User Interface" FontWeight="Normal" TextWrapping="noWrap" Grid.Column="1"><Run FontWeight="Normal" Text="myRequirments"/></TextBlock>
+    	<TextBlock HorizontalAlignment="Left" Margin="226,40,0,0" VerticalAlignment="Top" Grid.Row="2" Text="Wrong username or password!" TextWrapping="NoWrap" x:Name="errorMessage" Visibility="Collapsed"/>
+    	<TextBlock HorizontalAlignment="Right" Text="v1.1" TextWrapping="NoWrap" Margin="0,35,25,0" VerticalAlignment="Top" FontSize="8" Foreground="#FF959191" Grid.Column="1"/>
+    </Grid>
+	</Border>
+</UserControl>

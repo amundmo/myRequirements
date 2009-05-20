@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/myRequirementsWebService.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/myRequirementsWebService.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1927/WebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/myRequirementsWebService" />
+  <xs:complexType name="ArrayOfRequirment_PatternsAndCategoriesAndExamples">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Requirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:Requirment_PatternsAndCategoriesAndExamples" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRequirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:ArrayOfRequirment_PatternsAndCategoriesAndExamples" />
+  <xs:complexType name="Requirment_PatternsAndCategoriesAndExamples">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Categories" nillable="true" type="q1:ArrayOfCategorie" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Examples" nillable="true" type="q2:ArrayOfExample" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Patterns" nillable="true" type="q3:ArrayOfPattern" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Requirement" nillable="true" type="q4:Requirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Requirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:Requirment_PatternsAndCategoriesAndExamples" />
+  <xs:complexType name="ArrayOfPattern_RequirementAndCategories">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pattern_RequirementAndCategories" nillable="true" type="tns:Pattern_RequirementAndCategories" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPattern_RequirementAndCategories" nillable="true" type="tns:ArrayOfPattern_RequirementAndCategories" />
+  <xs:complexType name="Pattern_RequirementAndCategories">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Categories" nillable="true" type="q5:ArrayOfCategorie" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Examples" nillable="true" type="q6:ArrayOfExample" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Pattern" nillable="true" type="q7:Pattern" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="PrivateRequirement" nillable="true" type="q8:ArrayOfPrivateRequirement" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Requirements" nillable="true" type="q9:ArrayOfRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pattern_RequirementAndCategories" nillable="true" type="tns:Pattern_RequirementAndCategories" />
+  <xs:complexType name="ArrayOfCategories_RequirementsAndPatterns">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Categories_RequirementsAndPatterns" nillable="true" type="tns:Categories_RequirementsAndPatterns" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategories_RequirementsAndPatterns" nillable="true" type="tns:ArrayOfCategories_RequirementsAndPatterns" />
+  <xs:complexType name="Categories_RequirementsAndPatterns">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Categorie" nillable="true" type="q10:Categorie" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Examples" nillable="true" type="q11:ArrayOfExample" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Patterns" nillable="true" type="q12:ArrayOfPattern" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Requirements" nillable="true" type="q13:ArrayOfRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Categories_RequirementsAndPatterns" nillable="true" type="tns:Categories_RequirementsAndPatterns" />
+  <xs:complexType name="RequirementsAndPatternsAndCategoriesAndPrivRequirements">
+    <xs:sequence>
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Categories" nillable="true" type="q14:ArrayOfCategorie" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Patterns" nillable="true" type="q15:ArrayOfPattern" />
+      <xs:element minOccurs="0" name="PrivRequirements" nillable="true" type="tns:ArrayOfPrivateRequirment_PatternsAndCategoriesAndExamples" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationCategoryPattern" nillable="true" type="q16:ArrayOfRelationCategoriePattern" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationCategoryPrivateSecurityRequirement" nillable="true" type="q17:ArrayOfRelationCategoriePrivateSecurityRequirement" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationCategoryRequirement" nillable="true" type="q18:ArrayOfRelationCategorieRequirement" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationPatternPrivateSecurityRequirement" nillable="true" type="q19:ArrayOfRelationPatternPrivateRequirement" />
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationPatternRequirement" nillable="true" type="q20:ArrayOfRelationPatternRequirement" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="RelationProjectPrivateSecurityRequirement" nillable="true" type="q21:ArrayOfRelationProjectPrivateRequirement" />
+      <xs:element minOccurs="0" name="Requirements" nillable="true" type="tns:ArrayOfRequirment_PatternsAndCategoriesAndExamples" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequirementsAndPatternsAndCategoriesAndPrivRequirements" nillable="true" type="tns:RequirementsAndPatternsAndCategoriesAndPrivRequirements" />
+  <xs:complexType name="ArrayOfPrivateRequirment_PatternsAndCategoriesAndExamples">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrivateRequirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:PrivateRequirment_PatternsAndCategoriesAndExamples" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrivateRequirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:ArrayOfPrivateRequirment_PatternsAndCategoriesAndExamples" />
+  <xs:complexType name="PrivateRequirment_PatternsAndCategoriesAndExamples">
+    <xs:sequence>
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Categories" nillable="true" type="q22:ArrayOfCategorie" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Examples" nillable="true" type="q23:ArrayOfExample" />
+      <xs:element minOccurs="0" name="Patterns" nillable="true" type="tns:ArrayOfPattern_RequirementAndCategories" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/myRequirementsWebService" minOccurs="0" name="Requirement" nillable="true" type="q24:PrivateRequirement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrivateRequirment_PatternsAndCategoriesAndExamples" nillable="true" type="tns:PrivateRequirment_PatternsAndCategoriesAndExamples" />
+  <xs:complexType name="Statistic">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="numPubSeqReq" type="xs:int" />
+      <xs:element minOccurs="0" name="numSeqReq" type="xs:int" />
+      <xs:element minOccurs="0" name="numSuggestedSeqActivities" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Statistic" nillable="true" type="tns:Statistic" />
+</xs:schema>

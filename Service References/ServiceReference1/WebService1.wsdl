@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="/Imports">
+      <xsd:import schemaLocation="http://localhost:1927/WebService.svc?xsd=xsd0" />
+      <xsd:import schemaLocation="http://localhost:1927/WebService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:1927/WebService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/myRequirementsWebService" />
+      <xsd:import schemaLocation="http://localhost:1927/WebService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/myRequirementsWebService.Data" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="WebService_Login_InputMessage">
+    <wsdl:part name="parameters" element="Login" />
+  </wsdl:message>
+  <wsdl:message name="WebService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewUser_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewUser" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewUser_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_RecoverLostPasswordByEmail_InputMessage">
+    <wsdl:part name="parameters" element="RecoverLostPasswordByEmail" />
+  </wsdl:message>
+  <wsdl:message name="WebService_RecoverLostPasswordByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="RecoverLostPasswordByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="getAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="getAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_OverrideLoginAs_InputMessage">
+    <wsdl:part name="parameters" element="OverrideLoginAs" />
+  </wsdl:message>
+  <wsdl:message name="WebService_OverrideLoginAs_OutputMessage">
+    <wsdl:part name="parameters" element="OverrideLoginAsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateUsers_InputMessage">
+    <wsdl:part name="parameters" element="UpdateUsers" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateUsers_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCurrentUserInformation_InputMessage">
+    <wsdl:part name="parameters" element="getCurrentUserInformation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCurrentUserInformation_OutputMessage">
+    <wsdl:part name="parameters" element="getCurrentUserInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllSRP_InputMessage">
+    <wsdl:part name="parameters" element="GetAllSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllSRP_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewSRP_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewSRP_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateSRP_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateSRP_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteSRP_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteSRP_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllSDP_InputMessage">
+    <wsdl:part name="parameters" element="GetAllSDP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllSDP_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllSDPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewSDP_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewSDP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewSDP_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewSDPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateSDP_InputMessage">
+    <wsdl:part name="parameters" element="UpdateSDP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateSDP_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateSDPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteSDP_InputMessage">
+    <wsdl:part name="parameters" element="DeleteSDP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteSDP_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteSDPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllCategories_InputMessage">
+    <wsdl:part name="parameters" element="GetAllCategories" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllCategories_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewCategorie_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewCategorie" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewCategorie_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewCategorieResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateCategorie_InputMessage">
+    <wsdl:part name="parameters" element="UpdateCategorie" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateCategorie_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateCategorieResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteCategorie_InputMessage">
+    <wsdl:part name="parameters" element="DeleteCategorie" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteCategorie_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteCategorieResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addPatternAndRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="addPatternAndRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addPatternAndRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="addPatternAndRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addPatternAndPrivateRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="addPatternAndPrivateRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addPatternAndPrivateRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="addPatternAndPrivateRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removePatternandRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="removePatternandRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removePatternandRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="removePatternandRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removePatternandPrivateRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="removePatternandPrivateRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removePatternandPrivateRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="removePatternandPrivateRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndPrivateRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndPrivateRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndPrivateRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndPrivateRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndPrivateRequirementRelation_InputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndPrivateRequirementRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndPrivateRequirementRelation_OutputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndPrivateRequirementRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addNewRequirementExampleByRequirmentID_InputMessage">
+    <wsdl:part name="parameters" element="addNewRequirementExampleByRequirmentID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addNewRequirementExampleByRequirmentID_OutputMessage">
+    <wsdl:part name="parameters" element="addNewRequirementExampleByRequirmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeRequirementExampleByRequirementID_InputMessage">
+    <wsdl:part name="parameters" element="removeRequirementExampleByRequirementID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeRequirementExampleByRequirementID_OutputMessage">
+    <wsdl:part name="parameters" element="removeRequirementExampleByRequirementIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndDesignRelation_InputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndDesignRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_addCategoryAndDesignRelation_OutputMessage">
+    <wsdl:part name="parameters" element="addCategoryAndDesignRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndPatternRelation_InputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndPatternRelation" />
+  </wsdl:message>
+  <wsdl:message name="WebService_removeCategoryAndPatternRelation_OutputMessage">
+    <wsdl:part name="parameters" element="removeCategoryAndPatternRelationResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndRequirementRelationsBycategoryID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndRequirementRelationsBycategoryID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndRequirementRelationsBycategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndRequirementRelationsBycategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndRequirementRelationsByRequirementID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndRequirementRelationsByRequirementID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndRequirementRelationsByRequirementID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndRequirementRelationsByRequirementIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPattnerRelationsByCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPattnerRelationsByCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPattnerRelationsByCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPattnerRelationsByCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPattnerRelationsByPatternID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPattnerRelationsByPatternID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPattnerRelationsByPatternID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPattnerRelationsByPatternIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndRequirementRelationsByPatternID_InputMessage">
+    <wsdl:part name="parameters" element="getPatternAndRequirementRelationsByPatternID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndRequirementRelationsByPatternID_OutputMessage">
+    <wsdl:part name="parameters" element="getPatternAndRequirementRelationsByPatternIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndRequirementRelationsByRequirementID_InputMessage">
+    <wsdl:part name="parameters" element="getPatternAndRequirementRelationsByRequirementID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndRequirementRelationsByRequirementID_OutputMessage">
+    <wsdl:part name="parameters" element="getPatternAndRequirementRelationsByRequirementIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndPrivateRequirementRelationsByPatternID_InputMessage">
+    <wsdl:part name="parameters" element="getPatternAndPrivateRequirementRelationsByPatternID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndPrivateRequirementRelationsByPatternID_OutputMessage">
+    <wsdl:part name="parameters" element="getPatternAndPrivateRequirementRelationsByPatternIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndPrivateRequirementRelationsByPrivateRequirmentID_InputMessage">
+    <wsdl:part name="parameters" element="getPatternAndPrivateRequirementRelationsByPrivateRequirmentID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getPatternAndPrivateRequirementRelationsByPrivateRequirmentID_OutputMessage">
+    <wsdl:part name="parameters" element="getPatternAndPrivateRequirementRelationsByPrivateRequirmentIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPrivateRequirementRelationsByCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPrivateRequirementRelationsByCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPrivateRequirementRelationsByCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPrivateRequirementRelationsByCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPrivateRequirementRelationsByPrivateRequirementID_InputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPrivateRequirementRelationsByPrivateRequirementID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getCategoryAndPrivateRequirementRelationsByPrivateRequirementID_OutputMessage">
+    <wsdl:part name="parameters" element="getCategoryAndPrivateRequirementRelationsByPrivateRequirementIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getAllData_InputMessage">
+    <wsdl:part name="parameters" element="getAllData" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getAllData_OutputMessage">
+    <wsdl:part name="parameters" element="getAllDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllProjects_InputMessage">
+    <wsdl:part name="parameters" element="GetAllProjects" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllProjects_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewProject_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewProject" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewProject_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateProject_InputMessage">
+    <wsdl:part name="parameters" element="UpdateProject" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdateProject_OutputMessage">
+    <wsdl:part name="parameters" element="UpdateProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteProject_InputMessage">
+    <wsdl:part name="parameters" element="DeleteProject" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeleteProject_OutputMessage">
+    <wsdl:part name="parameters" element="DeleteProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_SetActiveProject_InputMessage">
+    <wsdl:part name="parameters" element="SetActiveProject" />
+  </wsdl:message>
+  <wsdl:message name="WebService_SetActiveProject_OutputMessage">
+    <wsdl:part name="parameters" element="SetActiveProjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_toggleActivePrivateRequirement_InputMessage">
+    <wsdl:part name="parameters" element="toggleActivePrivateRequirement" />
+  </wsdl:message>
+  <wsdl:message name="WebService_toggleActivePrivateRequirement_OutputMessage">
+    <wsdl:part name="parameters" element="toggleActivePrivateRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_toggleActiveRequirement_InputMessage">
+    <wsdl:part name="parameters" element="toggleActiveRequirement" />
+  </wsdl:message>
+  <wsdl:message name="WebService_toggleActiveRequirement_OutputMessage">
+    <wsdl:part name="parameters" element="toggleActiveRequirementResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getStatisticsByProjectID_InputMessage">
+    <wsdl:part name="parameters" element="getStatisticsByProjectID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_getStatisticsByProjectID_OutputMessage">
+    <wsdl:part name="parameters" element="getStatisticsByProjectIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllPSRP_InputMessage">
+    <wsdl:part name="parameters" element="GetAllPSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_GetAllPSRP_OutputMessage">
+    <wsdl:part name="parameters" element="GetAllPSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewPSRP_InputMessage">
+    <wsdl:part name="parameters" element="CreateNewPSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_CreateNewPSRP_OutputMessage">
+    <wsdl:part name="parameters" element="CreateNewPSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdatePSRP_InputMessage">
+    <wsdl:part name="parameters" element="UpdatePSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_UpdatePSRP_OutputMessage">
+    <wsdl:part name="parameters" element="UpdatePSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeletePSRP_InputMessage">
+    <wsdl:part name="parameters" element="DeletePSRP" />
+  </wsdl:message>
+  <wsdl:message name="WebService_DeletePSRP_OutputMessage">
+    <wsdl:part name="parameters" element="DeletePSRPResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebService_createPrivateRequirementByRequirementID_InputMessage">
+    <wsdl:part name="parameters" element="createPrivateRequirementByRequirementID" />
+  </wsdl:message>
+  <wsdl:message name="WebService_createPrivateRequirementByRequirementID_OutputMessage">
+    <wsdl:part name="parameters" element="createPrivateRequirementByRequirementIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService">
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="urn:WebService/Login" message="WebService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/LoginResponse" message="WebService_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewUser">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewUser" message="WebService_CreateNewUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewUserResponse" message="WebService_CreateNewUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecoverLostPasswordByEmail">
+      <wsdl:input wsaw:Action="urn:WebService/RecoverLostPasswordByEmail" message="WebService_RecoverLostPasswordByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/RecoverLostPasswordByEmailResponse" message="WebService_RecoverLostPasswordByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllUsers">
+      <wsdl:input wsaw:Action="urn:WebService/getAllUsers" message="WebService_getAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getAllUsersResponse" message="WebService_getAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OverrideLoginAs">
+      <wsdl:input wsaw:Action="urn:WebService/OverrideLoginAs" message="WebService_OverrideLoginAs_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/OverrideLoginAsResponse" message="WebService_OverrideLoginAs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUsers">
+      <wsdl:input wsaw:Action="urn:WebService/UpdateUsers" message="WebService_UpdateUsers_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdateUsersResponse" message="WebService_UpdateUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="urn:WebService/DeleteUser" message="WebService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeleteUserResponse" message="WebService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentUserInformation">
+      <wsdl:input wsaw:Action="urn:WebService/getCurrentUserInformation" message="WebService_getCurrentUserInformation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCurrentUserInformationResponse" message="WebService_getCurrentUserInformation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSRP">
+      <wsdl:input wsaw:Action="urn:WebService/GetAllSRP" message="WebService_GetAllSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/GetAllSRPResponse" message="WebService_GetAllSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewSRP">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewSRP" message="WebService_CreateNewSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewSRPResponse" message="WebService_CreateNewSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSRP">
+      <wsdl:input wsaw:Action="urn:WebService/UpdateSRP" message="WebService_UpdateSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdateSRPResponse" message="WebService_UpdateSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSRP">
+      <wsdl:input wsaw:Action="urn:WebService/DeleteSRP" message="WebService_DeleteSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeleteSRPResponse" message="WebService_DeleteSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSDP">
+      <wsdl:input wsaw:Action="urn:WebService/GetAllSDP" message="WebService_GetAllSDP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/GetAllSDPResponse" message="WebService_GetAllSDP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewSDP">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewSDP" message="WebService_CreateNewSDP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewSDPResponse" message="WebService_CreateNewSDP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSDP">
+      <wsdl:input wsaw:Action="urn:WebService/UpdateSDP" message="WebService_UpdateSDP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdateSDPResponse" message="WebService_UpdateSDP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSDP">
+      <wsdl:input wsaw:Action="urn:WebService/DeleteSDP" message="WebService_DeleteSDP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeleteSDPResponse" message="WebService_DeleteSDP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCategories">
+      <wsdl:input wsaw:Action="urn:WebService/GetAllCategories" message="WebService_GetAllCategories_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/GetAllCategoriesResponse" message="WebService_GetAllCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewCategorie">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewCategorie" message="WebService_CreateNewCategorie_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewCategorieResponse" message="WebService_CreateNewCategorie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCategorie">
+      <wsdl:input wsaw:Action="urn:WebService/UpdateCategorie" message="WebService_UpdateCategorie_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdateCategorieResponse" message="WebService_UpdateCategorie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCategorie">
+      <wsdl:input wsaw:Action="urn:WebService/DeleteCategorie" message="WebService_DeleteCategorie_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeleteCategorieResponse" message="WebService_DeleteCategorie_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatternAndRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/addPatternAndRequirementRelation" message="WebService_addPatternAndRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addPatternAndRequirementRelationResponse" message="WebService_addPatternAndRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addPatternAndPrivateRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/addPatternAndPrivateRequirementRelation" message="WebService_addPatternAndPrivateRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addPatternAndPrivateRequirementRelationResponse" message="WebService_addPatternAndPrivateRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removePatternandRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/removePatternandRequirementRelation" message="WebService_removePatternandRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removePatternandRequirementRelationResponse" message="WebService_removePatternandRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removePatternandPrivateRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/removePatternandPrivateRequirementRelation" message="WebService_removePatternandPrivateRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removePatternandPrivateRequirementRelationResponse" message="WebService_removePatternandPrivateRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCategoryAndRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/addCategoryAndRequirementRelation" message="WebService_addCategoryAndRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addCategoryAndRequirementRelationResponse" message="WebService_addCategoryAndRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCategoryAndPrivateRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/addCategoryAndPrivateRequirementRelation" message="WebService_addCategoryAndPrivateRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addCategoryAndPrivateRequirementRelationResponse" message="WebService_addCategoryAndPrivateRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCategoryAndRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/removeCategoryAndRequirementRelation" message="WebService_removeCategoryAndRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removeCategoryAndRequirementRelationResponse" message="WebService_removeCategoryAndRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCategoryAndPrivateRequirementRelation">
+      <wsdl:input wsaw:Action="urn:WebService/removeCategoryAndPrivateRequirementRelation" message="WebService_removeCategoryAndPrivateRequirementRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removeCategoryAndPrivateRequirementRelationResponse" message="WebService_removeCategoryAndPrivateRequirementRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addNewRequirementExampleByRequirmentID">
+      <wsdl:input wsaw:Action="urn:WebService/addNewRequirementExampleByRequirmentID" message="WebService_addNewRequirementExampleByRequirmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addNewRequirementExampleByRequirmentIDResponse" message="WebService_addNewRequirementExampleByRequirmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeRequirementExampleByRequirementID">
+      <wsdl:input wsaw:Action="urn:WebService/removeRequirementExampleByRequirementID" message="WebService_removeRequirementExampleByRequirementID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removeRequirementExampleByRequirementIDResponse" message="WebService_removeRequirementExampleByRequirementID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addCategoryAndDesignRelation">
+      <wsdl:input wsaw:Action="urn:WebService/addCategoryAndDesignRelation" message="WebService_addCategoryAndDesignRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/addCategoryAndDesignRelationResponse" message="WebService_addCategoryAndDesignRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCategoryAndPatternRelation">
+      <wsdl:input wsaw:Action="urn:WebService/removeCategoryAndPatternRelation" message="WebService_removeCategoryAndPatternRelation_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/removeCategoryAndPatternRelationResponse" message="WebService_removeCategoryAndPatternRelation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndRequirementRelationsBycategoryID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndRequirementRelationsBycategoryID" message="WebService_getCategoryAndRequirementRelationsBycategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndRequirementRelationsBycategoryIDResponse" message="WebService_getCategoryAndRequirementRelationsBycategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndRequirementRelationsByRequirementID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndRequirementRelationsByRequirementID" message="WebService_getCategoryAndRequirementRelationsByRequirementID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndRequirementRelationsByRequirementIDResponse" message="WebService_getCategoryAndRequirementRelationsByRequirementID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndPattnerRelationsByCategoryID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndPattnerRelationsByCategoryID" message="WebService_getCategoryAndPattnerRelationsByCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndPattnerRelationsByCategoryIDResponse" message="WebService_getCategoryAndPattnerRelationsByCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndPattnerRelationsByPatternID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndPattnerRelationsByPatternID" message="WebService_getCategoryAndPattnerRelationsByPatternID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndPattnerRelationsByPatternIDResponse" message="WebService_getCategoryAndPattnerRelationsByPatternID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatternAndRequirementRelationsByPatternID">
+      <wsdl:input wsaw:Action="urn:WebService/getPatternAndRequirementRelationsByPatternID" message="WebService_getPatternAndRequirementRelationsByPatternID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getPatternAndRequirementRelationsByPatternIDResponse" message="WebService_getPatternAndRequirementRelationsByPatternID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatternAndRequirementRelationsByRequirementID">
+      <wsdl:input wsaw:Action="urn:WebService/getPatternAndRequirementRelationsByRequirementID" message="WebService_getPatternAndRequirementRelationsByRequirementID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getPatternAndRequirementRelationsByRequirementIDResponse" message="WebService_getPatternAndRequirementRelationsByRequirementID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatternAndPrivateRequirementRelationsByPatternID">
+      <wsdl:input wsaw:Action="urn:WebService/getPatternAndPrivateRequirementRelationsByPatternID" message="WebService_getPatternAndPrivateRequirementRelationsByPatternID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getPatternAndPrivateRequirementRelationsByPatternIDResponse" message="WebService_getPatternAndPrivateRequirementRelationsByPatternID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getPatternAndPrivateRequirementRelationsByPrivateRequirmentID">
+      <wsdl:input wsaw:Action="urn:WebService/getPatternAndPrivateRequirementRelationsByPrivateRequirmentID" message="WebService_getPatternAndPrivateRequirementRelationsByPrivateRequirmentID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getPatternAndPrivateRequirementRelationsByPrivateRequirmentIDResponse" message="WebService_getPatternAndPrivateRequirementRelationsByPrivateRequirmentID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndPrivateRequirementRelationsByCategoryID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndPrivateRequirementRelationsByCategoryID" message="WebService_getCategoryAndPrivateRequirementRelationsByCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndPrivateRequirementRelationsByCategoryIDResponse" message="WebService_getCategoryAndPrivateRequirementRelationsByCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategoryAndPrivateRequirementRelationsByPrivateRequirementID">
+      <wsdl:input wsaw:Action="urn:WebService/getCategoryAndPrivateRequirementRelationsByPrivateRequirementID" message="WebService_getCategoryAndPrivateRequirementRelationsByPrivateRequirementID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getCategoryAndPrivateRequirementRelationsByPrivateRequirementIDResponse" message="WebService_getCategoryAndPrivateRequirementRelationsByPrivateRequirementID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getAllData">
+      <wsdl:input wsaw:Action="urn:WebService/getAllData" message="WebService_getAllData_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getAllDataResponse" message="WebService_getAllData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllProjects">
+      <wsdl:input wsaw:Action="urn:WebService/GetAllProjects" message="WebService_GetAllProjects_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/GetAllProjectsResponse" message="WebService_GetAllProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewProject">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewProject" message="WebService_CreateNewProject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewProjectResponse" message="WebService_CreateNewProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProject">
+      <wsdl:input wsaw:Action="urn:WebService/UpdateProject" message="WebService_UpdateProject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdateProjectResponse" message="WebService_UpdateProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProject">
+      <wsdl:input wsaw:Action="urn:WebService/DeleteProject" message="WebService_DeleteProject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeleteProjectResponse" message="WebService_DeleteProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetActiveProject">
+      <wsdl:input wsaw:Action="urn:WebService/SetActiveProject" message="WebService_SetActiveProject_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/SetActiveProjectResponse" message="WebService_SetActiveProject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="toggleActivePrivateRequirement">
+      <wsdl:input wsaw:Action="urn:WebService/toggleActivePrivateRequirement" message="WebService_toggleActivePrivateRequirement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/toggleActivePrivateRequirementResponse" message="WebService_toggleActivePrivateRequirement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="toggleActiveRequirement">
+      <wsdl:input wsaw:Action="urn:WebService/toggleActiveRequirement" message="WebService_toggleActiveRequirement_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/toggleActiveRequirementResponse" message="WebService_toggleActiveRequirement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStatisticsByProjectID">
+      <wsdl:input wsaw:Action="urn:WebService/getStatisticsByProjectID" message="WebService_getStatisticsByProjectID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/getStatisticsByProjectIDResponse" message="WebService_getStatisticsByProjectID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPSRP">
+      <wsdl:input wsaw:Action="urn:WebService/GetAllPSRP" message="WebService_GetAllPSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/GetAllPSRPResponse" message="WebService_GetAllPSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPSRP">
+      <wsdl:input wsaw:Action="urn:WebService/CreateNewPSRP" message="WebService_CreateNewPSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/CreateNewPSRPResponse" message="WebService_CreateNewPSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePSRP">
+      <wsdl:input wsaw:Action="urn:WebService/UpdatePSRP" message="WebService_UpdatePSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/UpdatePSRPResponse" message="WebService_UpdatePSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePSRP">
+      <wsdl:input wsaw:Action="urn:WebService/DeletePSRP" message="WebService_DeletePSRP_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/DeletePSRPResponse" message="WebService_DeletePSRP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="createPrivateRequirementByRequirementID">
+      <wsdl:input wsaw:Action="urn:WebService/createPrivateRequirementByRequirementID" message="WebService_createPrivateRequirementByRequirementID_InputMessage" />
+      <wsdl:output wsaw:Action="urn:WebService/createPrivateRequirementByRequirementIDResponse" message="WebService_createPrivateRequirementByRequirementID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
